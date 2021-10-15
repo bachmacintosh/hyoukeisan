@@ -1,6 +1,6 @@
 {
   "name": "wanikani-gs",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A Google AppsScript to import WaniKani data into Google Sheets",
   "main": "Code.ts",
   "scripts": {
