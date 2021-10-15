@@ -1,0 +1,14 @@
+{
+  "name": "wanikani-gs",
+  "version": "1.0.0",
+  "description": "A Google AppsScript to import WaniKani data into Google Sheets",
+  "main": "Code.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Collin Bachman",
+  "license": "MIT",
+  "dependencies": {
+    "@types/google-apps-script": "^1.0.37"
+  }
+}
