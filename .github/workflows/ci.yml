@@ -1,0 +1,27 @@
+  name: CI
+  on: [push, pull_request]
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout from Git
+          uses: actions/checkout@v2
+        - name: Use Node.js
+          uses: actions/setup-node@v1
+          with:
+            node-version: '16'
+        - name: Cache NPM Dependencies
+          uses: actions/cache@v2
+          env:
+              cache-name: cache-npm-dependencies
+          with:
+            path: ~/.npm
+            key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+            restore-keys: |
+                ${{ runner.os }}-build-${{ env.cache-name }}-
+                ${{ runner.os }}-build-
+                ${{ runner.os }}-
+        - name: NPM Install
+          run: npm install
+        - name: Run ESLint
+          run: npm run lint
