@@ -2,6 +2,10 @@
 
 A Google AppsScript to import WaniKani data into Google Sheets
 
+| Branch  | Status        |
+| ------- | ------------- |
+| main    | [![CI](https://github.com/bachmacintosh/wanikani-gs/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/bachmacintosh/wanikani-gs/actions/workflows/ci.yml)  |
+
 ## Get The Google Sheet Add-On
 
 `[a link to a published Add-On will be available at version 1.0]`
