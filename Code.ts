@@ -1,4 +1,5 @@
-function onOpen(e) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function onOpen() {
   const apiSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('WaniKani API');
   if (apiSheet === null) {
     createApiSheet();
