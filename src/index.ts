@@ -1,20 +1,20 @@
-import {WaniKaniApiSheetBuilder} from "./builders/WaniKaniApiSheetBuilder";
+import {WaniKaniApiSheet} from "./sheets/WaniKaniApiSheet";
 import {UIPromptService} from "./services/UIPromptService";
-const builder = new WaniKaniApiSheetBuilder;
-const ui = new UIPromptService();
+const apiSheet = new WaniKaniApiSheet;
+const ui = new UIPromptService;
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function onOpen() {
-  const apiSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('WaniKani API');
-  if (apiSheet === null) {
-    builder.build();
+  const apiSheetExists = apiSheet.checkIfExists();
+  if (apiSheetExists === null) {
+    apiSheet.build();
     ui.askForApiKey();
   } else {
-    const apiKey = apiSheet.getRange('B1').getValue();
+    const apiKey = apiSheetExists.getRange('B1').getValue();
     if (apiKey === '') {
       ui.askForApiKey();
     }
   }
 
-  builder.build();
+  apiSheet.build();
 }
 

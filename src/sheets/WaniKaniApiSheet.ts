@@ -1,5 +1,8 @@
-import {Builder} from '.';
-export class WaniKaniApiSheetBuilder implements Builder {
+import {Sheet} from '.';
+export class WaniKaniApiSheet implements Sheet {
+    checkIfExists(): GoogleAppsScript.Spreadsheet.Sheet | null {
+        return SpreadsheetApp.getActiveSpreadsheet().getSheetByName('WaniKani API');
+    }
     build() {
         const sheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet();
         sheet.setName('WaniKani API');
