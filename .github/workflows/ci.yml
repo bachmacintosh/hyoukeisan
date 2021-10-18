@@ -25,3 +25,5 @@
           run: npm install
         - name: Run ESLint
           run: npm run lint
+        - name: Roll Up
+          run: npm run build
