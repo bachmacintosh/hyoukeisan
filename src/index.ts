@@ -1,20 +1,16 @@
 import {WaniKaniApiSheet} from "./sheets/WaniKaniApiSheet";
-import {UIPromptService} from "./services/UIPromptService";
+import {UIService} from "./services/UIService";
 const apiSheet = new WaniKaniApiSheet;
-const ui = new UIPromptService;
+const ui = new UIService;
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function onOpen() {
-  const apiSheetExists = apiSheet.checkIfExists();
-  if (apiSheetExists === null) {
+  if (apiSheet.sheet === null) {
     apiSheet.build();
     ui.askForApiKey();
   } else {
-    const apiKey = apiSheetExists.getRange('B1').getValue();
-    if (apiKey === '') {
+    if (apiSheet.getApiKey() === null) {
       ui.askForApiKey();
     }
   }
-
-  apiSheet.build();
 }
 

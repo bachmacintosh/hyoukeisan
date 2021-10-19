@@ -1,15 +1,20 @@
 import {Sheet} from '.';
 export class WaniKaniApiSheet implements Sheet {
-    checkIfExists(): GoogleAppsScript.Spreadsheet.Sheet | null {
-        return SpreadsheetApp.getActiveSpreadsheet().getSheetByName('WaniKani API');
+    sheet: GoogleAppsScript.Spreadsheet.Sheet | null;
+
+    constructor() {
+        this.sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('WaniKani API');
     }
     build() {
-        const sheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet();
-        sheet.setName('WaniKani API');
-        sheet.getRange('A1:A2').setValues([
+        this.sheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet();
+        this.sheet.setName('WaniKani API');
+        this.sheet.getRange('A1:A2').setValues([
             ['WaniKani API Key:'],
             ['ETag:']
         ]).setFontWeight('bold');
-        sheet.autoResizeColumn(1);
+        this.sheet.autoResizeColumn(1);
+    }
+    getApiKey(): string {
+        return this.sheet?.getRange('B1').getValue();
     }
 }
