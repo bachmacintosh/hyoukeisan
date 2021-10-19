@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix",
-    "build": "rollup --config"
+    "build": "rollup --config",
+    "deploy": "rollup --config && clasp push"
   },
   "author": "Collin Bachman",
   "license": "MIT",
