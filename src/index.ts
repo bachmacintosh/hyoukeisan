@@ -8,7 +8,7 @@ function onOpen() {
     apiSheet.build();
     ui.askForApiKey();
   } else {
-    if (apiSheet.getApiKey() === null) {
+    if (apiSheet.getApiKey() === '') {
       ui.askForApiKey();
     }
   }
