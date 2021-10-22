@@ -14,7 +14,7 @@ A Google AppsScript to import WaniKani data into Google Sheets
 
 1. Create a blank Google Sheet if not done already
 2. Open the Sheet, and go to **Tools > Script Editor**. This will create a Google AppsScript Project that is bound to your Google Sheet; give it a recognizable Project Name in the top left corner of your screen
-3. Paste the contents of the Pre-Compiled JavaScript into your `Code.gs` file
+3. Paste the contents of the [Pre-Compiled JavaScript](https://github.com/bachmacintosh/wanikani-gs/blob/main/build/index.js) into your `Code.gs` file
 4. Copy the contents of `appsscript.json` and past into your own `appsscript.json` per [Google's instructions](https://developers.google.com/apps-script/concepts/scopes#setting_explicit_scopes) to explicitly grant all required scopes
 5. Re-open your Google Sheet, and it should begin populating with empty WaniKani sheets
 
