@@ -31,3 +31,6 @@ To develop this script, you will need:
 1. `git clone` this repository into said folder
 1. Code and test by doing a `clasp push` to your own AppsScript Project
 
+## Contributing
+
+Please see [SECURITY.md](https://github.com/bachmacintosh/wanikani-gs/blob/main/SECURITY.md) for reporting security vulnerabilities, and [CONTRIBUTING.md](https://github.com/bachmacintosh/wanikani-gs/blob/main/CONTRIBUTING.md) for all other contributions to the Project. All contributions should be made in line with our [Code of Conduct](https://github.com/bachmacintosh/wanikani-gs/blob/main/CODE_OF_CONDUCT.md). Thank You!
