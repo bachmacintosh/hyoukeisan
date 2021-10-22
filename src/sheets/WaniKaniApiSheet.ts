@@ -5,10 +5,14 @@ export class WaniKaniApiSheet implements Sheet {
     constructor() {
         this.sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('WaniKani API');
     }
-    build() {
+
+    create() {
         this.sheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet();
         this.sheet.setName('WaniKani API');
-        this.sheet.getRange('A1:A12').setValues([
+    }
+
+    build() {
+        this.sheet?.getRange('A1:A12').setValues([
             ['WaniKani API Key:'],
             ['User ETag:'],
             ['Summary ETag:'],
@@ -22,7 +26,7 @@ export class WaniKaniApiSheet implements Sheet {
             ['Study Materials ETag:'],
             ['Voice Actors ETag:']
         ]).setFontWeight('bold');
-        this.sheet.autoResizeColumn(1);
+        this.sheet?.autoResizeColumn(1);
     }
     getApiKey(): string {
         return this.sheet?.getRange('B1').getValue() ?? '';

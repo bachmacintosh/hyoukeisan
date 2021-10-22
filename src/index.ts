@@ -16,6 +16,7 @@ function setupSheets() {
   const ui = new UIService;
 
   if (apiSheet.sheet === null) {
+    apiSheet.create();
     apiSheet.build();
     ui.askForApiKey();
   } else {
