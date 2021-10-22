@@ -8,7 +8,7 @@ Any contributions that fall within the **LICENSE** and **CODE_OF_CONDUCT** of th
 
 Bugs can be reported via GitHub Issue **(preferred)** or at the WaniKani Community thread for this script (to be made available upon version 1.0).
 
-**Please do NOT open an issue for security vulnerability reports.** Instead, [email collin.bachman@gmail.com with the subject "[GitHub] SECURITY VULNERABILITY REPORT"](mailto:collin.bachman@gmail.com?subject=[GitHub]%20SECURITY%20VULNERABILITY%20REPORT). This will ensure that the issue can be fixed, and the vulnerability disclosed responsibly.
+**Please do NOT open an issue for security vulnerability reports.** Instead, [email collin@bachman.io with the subject "[GitHub] SECURITY VULNERABILITY REPORT"](mailto:collin@bachman.io?subject=[GitHub]%20SECURITY%20VULNERABILITY%20REPORT). This will ensure that the issue can be fixed, and the vulnerability disclosed responsibly.
 
 The issue title should be concise, but also describe the gist of the issue. "API not working" is a bad title; "Incomplete subject fetching," while short, at least points to a particular area to start looking into things (fetching Subject data).
 
