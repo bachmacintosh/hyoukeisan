@@ -36,8 +36,6 @@ class UIService {
 
 }
 
-// wanikani-gs
-
 function onInstall() {
   setupSheets();
 } // eslint-disable-next-line @typescript-eslint/no-unused-vars
