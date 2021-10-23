@@ -2,6 +2,8 @@
 
 A Google AppsScript to import WaniKani data into Google Sheets
 
+Licensed under MIT License, see LICENSE for more info.
+
 | Branch  | Status        |
 | ------- | ------------- |
 | main    | [![CI](https://github.com/bachmacintosh/wanikani-gs/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/bachmacintosh/wanikani-gs/actions/workflows/ci.yml)  |
@@ -21,11 +23,9 @@ A Google AppsScript to import WaniKani data into Google Sheets
 
 ## For Both Installation Methods
 
-1. After the Sheet is set up, [grab a read-only API Key from WaniKani](https://www.wanikani.com/settings/personal_access_tokens), and paste it into Cell B1 of the WaniKani API Sheet; it is **highly recommended** that you generate an API Key exclusively for each application to make mitigating compromised API Keys easier (especially for other applications)
+After the Sheet is set up, [grab a read-only API Key from WaniKani](https://www.wanikani.com/settings/personal_access_tokens), and paste it into Cell B1 of the WaniKani API Sheet; it is **highly recommended** that you generate an API Key exclusively for each application to make mitigating compromised API Keys easier (especially for other applications)
 
 ---
-
-Anyone is free to use this software under the conditions set forth by the MIT License in the **LICENSE** file. Contributions via issues and pull requests are welcome per the **CONTRIBUTING** and **CODE_OF_CONDUCT**.
 
 ## Development
 
