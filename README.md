@@ -40,9 +40,9 @@ To develop this script, you will need:
 
 1. Create a blank Google Sheet if not done already
 2. Open the Sheet, and go to **Tools > Script Editor**. This will create a Google AppsScript Project that is bound to your Google Sheet; give it a recognizable Project Name in the top left corner of your screen
-3.`clasp clone` your newly created project into an empty folder
-4.`git clone` this repository into said folder
-3. Code and test by doing a `clasp push` to your own AppsScript Project
+3. `clasp clone` your newly created project into an empty folder
+4. `git clone` this repository into said folder
+5. Code and test by doing a `clasp push` to your own AppsScript Project
 
 ## Contributing
 
