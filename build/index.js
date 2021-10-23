@@ -1,5 +1,8 @@
 /**
  * wanikani-gs v0.1.0
+ * 
+ * MIT License
+ * 
  * Copyright (c) 2021 Collin Bachman
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
