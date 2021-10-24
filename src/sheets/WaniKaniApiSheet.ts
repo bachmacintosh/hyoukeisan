@@ -1,18 +1,22 @@
 import {Sheet} from '.';
 export class WaniKaniApiSheet implements Sheet {
-    sheet: GoogleAppsScript.Spreadsheet.Sheet | null;
+    _sheet: GoogleAppsScript.Spreadsheet.Sheet | null;
 
     constructor() {
-        this.sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('WaniKani API');
+        this._sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('WaniKani API');
+    }
+
+    get sheet() {
+        return this._sheet;
     }
 
     create() {
-        this.sheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet();
-        this.sheet.setName('WaniKani API');
+        this._sheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet();
+        this._sheet.setName('WaniKani API');
     }
 
     build() {
-        this.sheet?.getRange('A1:A12').setValues([
+        this._sheet?.getRange('A1:A12').setValues([
             ['WaniKani API Key:'],
             ['User ETag:'],
             ['Summary ETag:'],
@@ -26,9 +30,9 @@ export class WaniKaniApiSheet implements Sheet {
             ['Study Materials ETag:'],
             ['Voice Actors ETag:']
         ]).setFontWeight('bold');
-        this.sheet?.autoResizeColumn(1);
+        this._sheet?.autoResizeColumn(1);
     }
     getApiKey(): string {
-        return this.sheet?.getRange('B1').getValue() ?? '';
+        return this._sheet?.getRange('B1').getValue() ?? '';
     }
 }
