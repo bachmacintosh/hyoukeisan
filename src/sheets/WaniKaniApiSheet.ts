@@ -35,4 +35,12 @@ export class WaniKaniApiSheet implements Sheet {
     getApiKey(): string {
         return this._sheet?.getRange('B1').getValue() ?? '';
     }
+
+    getUserEtag(): string {
+        return this._sheet?.getRange('B2').getValue() ?? '';
+    }
+
+    setUserEtag(etag: string) {
+        this._sheet?.getRange('B2').setValue(etag);
+    }
 }
