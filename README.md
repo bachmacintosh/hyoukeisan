@@ -6,7 +6,7 @@ Licensed under MIT License, see LICENSE for more info.
 
 | Branch  | Status        |
 | ------- | ------------- |
-| main    | [![CI](https://github.com/bachmacintosh/wanikani-gs/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/bachmacintosh/wanikani-gs/actions/workflows/ci.yml)  |
+| main    | [![CI](https://github.com/bachmacintosh/wanikani-gs/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/bachmacintosh/wanikani-gs/actions/workflows/ci.yml) [![CodeQL](https://github.com/bachmacintosh/wanikani-gs/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/bachmacintosh/wanikani-gs/actions/workflows/codeql-analysis.yml) |
 
 ## Get The Google Sheet Add-On
 
