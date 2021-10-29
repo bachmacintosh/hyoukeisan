@@ -286,7 +286,7 @@ function onInstall() {
 
 
 function onOpen(e) {
-  if (e.authMode === GoogleAppsScript.Script.AuthMode.LIMITED) {
+  if (e.authMode === ScriptApp.AuthMode.LIMITED) {
     setupSheets();
   }
 

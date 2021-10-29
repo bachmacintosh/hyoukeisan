@@ -10,7 +10,7 @@ function onInstall() {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function onOpen(e: GoogleAppsScript.Events.SheetsOnOpen) {
-  if(e.authMode === GoogleAppsScript.Script.AuthMode.LIMITED) {
+  if(e.authMode === ScriptApp.AuthMode.LIMITED) {
     setupSheets();
   }
   setupMenu();
