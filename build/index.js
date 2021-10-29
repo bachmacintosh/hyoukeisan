@@ -279,9 +279,9 @@ class UserSheet {
 
 }
 
-function onInstall() {
+function onInstall(e) {
   setupSheets();
-  setupMenu();
+  setupMenu(e);
 } // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 
@@ -290,7 +290,7 @@ function onOpen(e) {
     setupSheets();
   }
 
-  setupMenu();
+  setupMenu(e);
 }
 
 function setupSheets() {
@@ -305,7 +305,17 @@ function setupSheets() {
   }
 }
 
-function setupMenu() {
+function setupMenu(e) {
+  if (e.authMode === ScriptApp.AuthMode.LIMITED) {
+    SpreadsheetApp.getUi().createAddonMenu().addItem('Update All', 'updateAll').addSeparator().addItem('Update User', 'updateUser').addToUi();
+  } else {
+    SpreadsheetApp.getUi().createAddonMenu().addItem('Enable Add-On', 'enableAddOn').addToUi();
+  }
+} // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
+
+function enableAddOn() {
+  setupSheets();
   SpreadsheetApp.getUi().createAddonMenu().addItem('Update All', 'updateAll').addSeparator().addItem('Update User', 'updateUser').addToUi();
 }
 
@@ -315,11 +325,17 @@ function askForApiKey() {
 
 
 function updateUser() {
-  const user = new User();
+  const apiSheet = new WaniKaniApiSheet();
 
-  if (user.hasNewData) {
-    const userSheet = new UserSheet();
-    userSheet.update(user);
+  if (apiSheet.getApiKey() === '') {
+    askForApiKey();
+  } else {
+    const user = new User();
+
+    if (user.hasNewData) {
+      const userSheet = new UserSheet();
+      userSheet.update(user);
+    }
   }
 } // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
