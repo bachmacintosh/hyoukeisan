@@ -1,5 +1,5 @@
 {
-  "name": "wanikani-gs",
+  "name": "hyoukeisan",
   "version": "0.1.0",
   "description": "A Google AppsScript to import WaniKani data into Google Sheets",
   "main": "src/index.ts",
