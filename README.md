@@ -1,4 +1,4 @@
-# wanikani-gs
+# hyoukeisan - 表計算
 
 A Google AppsScript to import WaniKani data into Google Sheets
 
