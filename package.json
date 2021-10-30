@@ -7,7 +7,9 @@
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix",
     "build": "rollup --config",
-    "deploy": "rollup --config && clasp push"
+    "deploy": "rollup --config && clasp push",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "author": {
     "name": "Collin Bachman",
