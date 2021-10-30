@@ -279,18 +279,44 @@ class UserSheet {
 
 }
 
+class UI {
+  constructor() {
+    this.interface = SpreadsheetApp.getUi();
+    this.pressedButton = this.interface.Button.CLOSE;
+    this.menu = this.interface.createAddonMenu();
+  }
+
+  promptForEnable() {
+    this.pressedButton = this.interface.alert('Enable Add-On?', 'This will add and pre-fill some sheets into the spreadsheet. Is that okay?', this.interface.ButtonSet.YES_NO);
+  }
+
+  setupDynamicMenu(e) {
+    if (e.authMode === ScriptApp.AuthMode.LIMITED || e.authMode === ScriptApp.AuthMode.FULL) {
+      this.setupFullMenu();
+    } else {
+      this.menu.addItem('Enable Add-On', 'enableAddOn').addToUi();
+    }
+  }
+
+  setupFullMenu() {
+    this.menu.addItem('Update All', 'updateAll').addSeparator().addItem('Update User', 'updateUser').addToUi();
+  }
+
+  askForApiKey() {
+    this.interface.alert('WaniKani API Key Required', 'Please enter a valid WaniKani API Key in Column B1 of sheet WaniKani API', this.interface.ButtonSet.OK);
+  }
+
+}
+
 function onInstall(e) {
-  setupSheets();
-  setupMenu(e);
+  const ui = new UI();
+  ui.setupDynamicMenu(e);
 } // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 
 function onOpen(e) {
-  if (e.authMode === ScriptApp.AuthMode.LIMITED) {
-    setupSheets();
-  }
-
-  setupMenu(e);
+  const ui = new UI();
+  ui.setupDynamicMenu(e);
 }
 
 function setupSheets() {
@@ -301,26 +327,20 @@ function setupSheets() {
   const apiKey = apiSheet.getApiKey();
 
   if (apiKey === '') {
-    askForApiKey();
-  }
-}
-
-function setupMenu(e) {
-  if (e.authMode === ScriptApp.AuthMode.LIMITED) {
-    SpreadsheetApp.getUi().createAddonMenu().addItem('Update All', 'updateAll').addSeparator().addItem('Update User', 'updateUser').addToUi();
-  } else {
-    SpreadsheetApp.getUi().createAddonMenu().addItem('Enable Add-On', 'enableAddOn').addToUi();
+    const ui = new UI();
+    ui.askForApiKey();
   }
 } // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 
 function enableAddOn() {
-  setupSheets();
-  SpreadsheetApp.getUi().createAddonMenu().addItem('Update All', 'updateAll').addSeparator().addItem('Update User', 'updateUser').addToUi();
-}
+  const ui = new UI();
+  ui.promptForEnable();
 
-function askForApiKey() {
-  SpreadsheetApp.getUi().alert('Please enter a valid WaniKani API Key in Column B1 of sheet WaniKani API');
+  if (ui.pressedButton === ui.interface.Button.YES) {
+    setupSheets();
+    ui.setupFullMenu();
+  }
 } // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 
@@ -328,7 +348,8 @@ function updateUser() {
   const apiSheet = new WaniKaniApiSheet();
 
   if (apiSheet.getApiKey() === '') {
-    askForApiKey();
+    const ui = new UI();
+    ui.askForApiKey();
   } else {
     const user = new User();
 

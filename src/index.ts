@@ -1,15 +1,18 @@
 import {WaniKaniApiSheet} from "./sheets/WaniKaniApiSheet";
 import {User} from "./wanikani/resources/User";
 import {UserSheet} from "./sheets/UserSheet";
+import {UI} from "./ui";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function onInstall(e: GoogleAppsScript.Events.AddonOnInstall) {
-  setupMenu(e);
+  const ui = new UI;
+  ui.setupDynamicMenu(e);
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function onOpen(e: GoogleAppsScript.Events.SheetsOnOpen) {
-  setupMenu(e);
+  const ui = new UI;
+  ui.setupDynamicMenu(e);
 }
 
 function setupSheets() {
@@ -19,43 +22,27 @@ function setupSheets() {
   userSheet.build();
   const apiKey = apiSheet.getApiKey();
   if (apiKey === '') {
-    askForApiKey();
-  }
-}
-
-function setupMenu(e: GoogleAppsScript.Events.SheetsOnOpen|GoogleAppsScript.Events.AddonOnInstall) {
-  if(e.authMode === ScriptApp.AuthMode.LIMITED) {
-    SpreadsheetApp.getUi().createAddonMenu()
-        .addItem('Update All', 'updateAll')
-        .addSeparator()
-        .addItem('Update User', 'updateUser')
-        .addToUi();
-  } else {
-    SpreadsheetApp.getUi().createAddonMenu()
-        .addItem('Enable Add-On', 'enableAddOn')
-        .addToUi();
+    const ui = new UI();
+    ui.askForApiKey();
   }
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function enableAddOn() {
-  setupSheets();
-  SpreadsheetApp.getUi().createAddonMenu()
-      .addItem('Update All', 'updateAll')
-      .addSeparator()
-      .addItem('Update User', 'updateUser')
-      .addToUi();
-}
-
-function askForApiKey() {
-  SpreadsheetApp.getUi().alert('Please enter a valid WaniKani API Key in Column B1 of sheet WaniKani API');
+  const ui = new UI;
+  ui.promptForEnable();
+  if(ui.pressedButton === ui.interface.Button.YES) {
+    setupSheets();
+    ui.setupFullMenu();
+  }
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function updateUser() {
   const apiSheet = new WaniKaniApiSheet;
   if(apiSheet.getApiKey() === '') {
-    askForApiKey();
+    const ui = new UI;
+    ui.askForApiKey();
   } else {
     const user = new User;
     if (user.hasNewData) {
