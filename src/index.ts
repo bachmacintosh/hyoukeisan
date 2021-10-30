@@ -4,15 +4,11 @@ import {UserSheet} from "./sheets/UserSheet";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function onInstall(e: GoogleAppsScript.Events.AddonOnInstall) {
-  setupSheets();
   setupMenu(e);
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function onOpen(e: GoogleAppsScript.Events.SheetsOnOpen) {
-  if(e.authMode === ScriptApp.AuthMode.LIMITED) {
-    setupSheets();
-  }
   setupMenu(e);
 }
 
