@@ -1,5 +1,5 @@
-import { defineUserConfig } from 'vuepress'
-import type { DefaultThemeOptions } from 'vuepress'
+import { defineUserConfig } from 'vuepress';
+import type { DefaultThemeOptions } from 'vuepress';
 
 export default defineUserConfig<DefaultThemeOptions>({
     lang: 'en-US',
@@ -10,6 +10,11 @@ export default defineUserConfig<DefaultThemeOptions>({
     themeConfig: {
         logo: 'https://vuejs.org/images/logo.png',
         repo: 'bachmacintosh/hyoukeisan',
-        docsDir: 'docs'
+        docsDir: 'docs',
+        sidebar: [
+            '/',
+            '/getting_started',
+            '/sheets'
+        ],
     },
 })
