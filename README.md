@@ -23,7 +23,7 @@ Licensed under MIT License, see LICENSE for more info.
 
 ## For Both Installation Methods
 
-After the Sheet is set up, [grab a read-only API Key from WaniKani](https://www.wanikani.com/settings/personal_access_tokens), and paste it into Cell B1 of the WaniKani API Sheet; it is **highly recommended** that you generate an API Key exclusively for each application to make mitigating compromised API Keys easier (especially for other applications)
+After the Sheet is set up, [grab a read-only Access Token from WaniKani](https://www.wanikani.com/settings/personal_access_tokens), and paste it into Cell B2 of the WaniKani API Sheet; it is **highly recommended** that you generate an Access Token exclusively for each application to make mitigating compromised API Keys easier (especially for other applications)
 
 ---
 

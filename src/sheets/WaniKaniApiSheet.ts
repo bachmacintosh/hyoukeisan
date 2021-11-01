@@ -7,6 +7,7 @@ export class WaniKaniApiSheet implements BaseSheetInterface {
         const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('WaniKani API');
         if (sheet === null) {
             this.sheet = WaniKaniApiSheet.create();
+            this.build();
         } else {
             this.sheet = sheet;
         }
@@ -19,8 +20,12 @@ export class WaniKaniApiSheet implements BaseSheetInterface {
     }
 
     public build() {
-        this.sheet.getRange('A1:A12').setValues([
-            ['WaniKani API Key:'],
+        this.sheet.getRange('A1:A16').setValues([
+            ['SETTINGS'],
+            ['WaniKani Access Token:'],
+            ['Fetch Private WaniKani Data:'],
+            [''],
+            ['ETAGS'],
             ['User ETag:'],
             ['Summary ETag:'],
             ['SRS ETag:'],
@@ -36,8 +41,8 @@ export class WaniKaniApiSheet implements BaseSheetInterface {
         this.sheet.autoResizeColumn(1);
     }
 
-    public getApiKey(): string {
-        return this.sheet.getRange('B1').getValue();
+    public getAccessToken(): string {
+        return this.sheet.getRange('B2').getValue();
     }
 
     public getUserEtag(): string {

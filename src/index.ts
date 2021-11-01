@@ -20,10 +20,10 @@ function setupSheets() {
   apiSheet.build();
   const userSheet = new UserSheet;
   userSheet.build();
-  const apiKey = apiSheet.getApiKey();
+  const apiKey = apiSheet.getAccessToken();
   if (apiKey === '') {
     const ui = new UI();
-    ui.askForApiKey();
+    ui.askForAccessToken();
   }
 }
 
@@ -40,9 +40,9 @@ function enableAddOn() {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function updateUser() {
   const apiSheet = new WaniKaniApiSheet;
-  if(apiSheet.getApiKey() === '') {
+  if(apiSheet.getAccessToken() === '') {
     const ui = new UI;
-    ui.askForApiKey();
+    ui.askForAccessToken();
   } else {
     const user = new User;
     if (user.hasNewData) {

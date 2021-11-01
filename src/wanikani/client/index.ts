@@ -55,12 +55,12 @@ export class Client implements ClientInterface {
         let headers: Record<string, string>;
         if (this._etag === '') {
             headers = {
-                'Authorization': 'Bearer ' + apiSheet.getApiKey(),
+                'Authorization': 'Bearer ' + apiSheet.getAccessToken(),
                 'Wanikani-Revision': this._version
             };
         } else {
             headers = {
-                'Authorization': 'Bearer ' + apiSheet.getApiKey(),
+                'Authorization': 'Bearer ' + apiSheet.getAccessToken(),
                 'Wanikani-Revision': this._version,
                 'If-None-Match': this._etag
             };

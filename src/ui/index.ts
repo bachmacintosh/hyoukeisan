@@ -33,7 +33,7 @@ export class UI implements UIInterface {
             .addToUi();
     }
 
-    askForApiKey() {
-        this.interface.alert('WaniKani API Key Required', 'Please enter a valid WaniKani API Key in Column B1 of sheet WaniKani API', this.interface.ButtonSet.OK);
+    askForAccessToken() {
+        this.interface.alert('WaniKani Access Token Required', 'Please enter a valid WaniKani Access Token in Column B2 of sheet WaniKani API', this.interface.ButtonSet.OK);
     }
 }

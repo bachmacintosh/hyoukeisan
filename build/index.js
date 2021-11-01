@@ -32,6 +32,7 @@ class WaniKaniApiSheet {
 
     if (sheet === null) {
       this.sheet = WaniKaniApiSheet.create();
+      this.build();
     } else {
       this.sheet = sheet;
     }
@@ -44,12 +45,12 @@ class WaniKaniApiSheet {
   }
 
   build() {
-    this.sheet.getRange('A1:A12').setValues([['WaniKani API Key:'], ['User ETag:'], ['Summary ETag:'], ['SRS ETag:'], ['Subjects ETag:'], ['Assignments ETag:'], ['Level Progressions ETag:'], ['Resets ETag:'], ['Reviews ETag:'], ['Review Statistics ETag:'], ['Study Materials ETag:'], ['Voice Actors ETag:']]).setFontWeight('bold');
+    this.sheet.getRange('A1:A16').setValues([['SETTINGS'], ['WaniKani Access Token:'], ['Fetch Private WaniKani Data:'], [''], ['ETAGS'], ['User ETag:'], ['Summary ETag:'], ['SRS ETag:'], ['Subjects ETag:'], ['Assignments ETag:'], ['Level Progressions ETag:'], ['Resets ETag:'], ['Reviews ETag:'], ['Review Statistics ETag:'], ['Study Materials ETag:'], ['Voice Actors ETag:']]).setFontWeight('bold');
     this.sheet.autoResizeColumn(1);
   }
 
-  getApiKey() {
-    return this.sheet.getRange('B1').getValue();
+  getAccessToken() {
+    return this.sheet.getRange('B2').getValue();
   }
 
   getUserEtag() {
@@ -102,12 +103,12 @@ class Client {
 
     if (this._etag === '') {
       headers = {
-        'Authorization': 'Bearer ' + apiSheet.getApiKey(),
+        'Authorization': 'Bearer ' + apiSheet.getAccessToken(),
         'Wanikani-Revision': this._version
       };
     } else {
       headers = {
-        'Authorization': 'Bearer ' + apiSheet.getApiKey(),
+        'Authorization': 'Bearer ' + apiSheet.getAccessToken(),
         'Wanikani-Revision': this._version,
         'If-None-Match': this._etag
       };
@@ -302,8 +303,8 @@ class UI {
     this.menu.addItem('Update All', 'updateAll').addSeparator().addItem('Update User', 'updateUser').addToUi();
   }
 
-  askForApiKey() {
-    this.interface.alert('WaniKani API Key Required', 'Please enter a valid WaniKani API Key in Column B1 of sheet WaniKani API', this.interface.ButtonSet.OK);
+  askForAccessToken() {
+    this.interface.alert('WaniKani Access Token Required', 'Please enter a valid WaniKani Access Token in Column B2 of sheet WaniKani API', this.interface.ButtonSet.OK);
   }
 
 }
@@ -324,11 +325,11 @@ function setupSheets() {
   apiSheet.build();
   const userSheet = new UserSheet();
   userSheet.build();
-  const apiKey = apiSheet.getApiKey();
+  const apiKey = apiSheet.getAccessToken();
 
   if (apiKey === '') {
     const ui = new UI();
-    ui.askForApiKey();
+    ui.askForAccessToken();
   }
 } // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
@@ -347,9 +348,9 @@ function enableAddOn() {
 function updateUser() {
   const apiSheet = new WaniKaniApiSheet();
 
-  if (apiSheet.getApiKey() === '') {
+  if (apiSheet.getAccessToken() === '') {
     const ui = new UI();
-    ui.askForApiKey();
+    ui.askForAccessToken();
   } else {
     const user = new User();
 

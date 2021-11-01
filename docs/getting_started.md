@@ -32,10 +32,10 @@ After authorizing the Add-On, you must click **Enable** one more time.
 
 A pop-up prompt will ask if it's okay to insert some sheets and row/column headers (see Sheets for what is inserted). If that's okay, click **Yes**. Otherwise, clicking **No** or closing the dialog will leave the Google Sheet untouched.
 
-After the Sheet is set up, [grab a read-only API Key from WaniKani](https://www.wanikani.com/settings/personal_access_tokens), and paste it into Cell B1 of the WaniKani API Sheet.
+After the Sheet is set up, [grab a read-only Access Token from WaniKani](https://www.wanikani.com/settings/personal_access_tokens), and paste it into Cell B2 of the WaniKani API Sheet.
 
 ::: warning HEADS UP!
-It is **highly recommended** that you generate an API Key exclusively for each application to make mitigating compromised API Keys easier (especially for other applications)
+It is **highly recommended** that you generate an Access Token exclusively for each application to make mitigating compromised API Keys easier (especially for other applications)
 :::
 
 ## First Run

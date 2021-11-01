@@ -3,5 +3,5 @@ export interface UIInterface {
     readonly interface: GoogleAppsScript.Base.Ui;
     setupDynamicMenu(e: GoogleAppsScript.Events.SheetsOnOpen|GoogleAppsScript.Events.AddonOnInstall): void;
     setupFullMenu(): void;
-    askForApiKey(): void;
+    askForAccessToken(): void;
 }
