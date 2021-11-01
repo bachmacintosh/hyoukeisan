@@ -5,7 +5,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     lang: 'en-US',
     title: 'Hyoukeisan',
     description: 'WaniKani data in your Google Sheets',
-    base: '/hyoukeisan',
+    base: '/',
 
     themeConfig: {
         logo: 'https://vuejs.org/images/logo.png',
