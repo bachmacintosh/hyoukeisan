@@ -27,3 +27,5 @@
           run: npm run lint
         - name: Roll Up
           run: npm run build
+        - name: Build Docs
+          run: npm run docs:build
