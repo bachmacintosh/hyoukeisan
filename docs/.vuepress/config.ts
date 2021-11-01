@@ -14,7 +14,7 @@ export default defineUserConfig<DefaultThemeOptions>({
         sidebar: [
             '/',
             '/getting_started',
-            '/sheets'
+            '/sheet_reference'
         ],
     },
 })
