@@ -6,7 +6,7 @@ Licensed under MIT License, see LICENSE for more info.
 
 | Branch  | Status        |
 | ------- | ------------- |
-| main    | [![CI](https://github.com/bachmacintosh/wanikani-gs/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/bachmacintosh/wanikani-gs/actions/workflows/ci.yml) [![CodeQL](https://github.com/bachmacintosh/wanikani-gs/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/bachmacintosh/wanikani-gs/actions/workflows/codeql-analysis.yml) |
+| main    | [![CI](https://github.com/bachmacintosh/wanikani-gs/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/bachmacintosh/wanikani-gs/actions/workflows/ci.yml) [![CodeQL](https://github.com/bachmacintosh/wanikani-gs/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/bachmacintosh/wanikani-gs/actions/workflows/codeql-analysis.yml) [![Netlify Status](https://api.netlify.com/api/v1/badges/601c314b-1d7b-4425-bbe4-4c479a5393a9/deploy-status)](https://app.netlify.com/sites/dreamy-villani-b8cce2/deploys) |
 
 ## Get The Google Sheet Add-On
 
