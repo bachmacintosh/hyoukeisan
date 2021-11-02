@@ -12,20 +12,9 @@ Licensed under MIT License, see LICENSE for more info.
 
 `[a link to a published Add-On will be available at version 1.0]`
 
-## Manual Installation
+## Documentation
 
-1. Create a blank Google Sheet if not done already
-2. Open the Sheet, and go to **Tools > Script Editor**. This will create a Google AppsScript Project that is bound to your Google Sheet; give it a recognizable Project Name in the top left corner of your screen
-3. Paste the contents of the [Pre-Compiled JavaScript](https://github.com/bachmacintosh/wanikani-gs/blob/main/build/index.js) into your `Code.gs` file
-4. Copy the contents of `appsscript.json` and past into your own `appsscript.json` per [Google's instructions](https://developers.google.com/apps-script/concepts/scopes#setting_explicit_scopes) to explicitly grant all required scopes, set the script's timezone, and allowlist the WaniKani API for fetching external data
-5. Re-open your Google Sheet, and it should begin populating with empty WaniKani sheets
-
-
-## For Both Installation Methods
-
-After the Sheet is set up, [grab a read-only Access Token from WaniKani](https://www.wanikani.com/settings/personal_access_tokens), and paste it into Cell B2 of the WaniKani API Sheet; it is **highly recommended** that you generate an Access Token exclusively for each application to make mitigating compromised API Keys easier (especially for other applications)
-
----
+Available at: [https://hyoukeisan.bachman.dev/](https://hyoukeisan.bachman.dev/)
 
 ## Development
 
