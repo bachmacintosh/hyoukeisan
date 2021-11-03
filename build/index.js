@@ -54,7 +54,7 @@ class WaniKaniApiSheet {
   }
 
   getUserEtag() {
-    return this.sheet.getRange('B2').getValue();
+    return this.sheet.getRange('B6').getValue();
   }
 
   setUserEtag(etag) {

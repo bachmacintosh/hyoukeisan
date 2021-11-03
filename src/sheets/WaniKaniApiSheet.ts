@@ -46,7 +46,7 @@ export class WaniKaniApiSheet implements BaseSheetInterface {
     }
 
     public getUserEtag(): string {
-        return this.sheet.getRange('B2').getValue();
+        return this.sheet.getRange('B6').getValue();
     }
 
     public setUserEtag(etag: string): void {
